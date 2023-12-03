@@ -41,7 +41,7 @@ set.addEventListener('click', () => {
     const seconds = parseInt(sec.value) || 0;
 
     //calculate time total
-    let totalTimeInSec = hours * 3600 + minutes * 60 + seconds;
+    let totalTime = hours * 3600 + minutes * 60 + seconds;
     
     //timer element 
     const activeTimer = document.createElement("div");
@@ -70,14 +70,14 @@ set.addEventListener('click', () => {
 
     // Start timer using setInterval
     const intervalId = setInterval( ()=> {
-        if(totalTimeInSec > 0){
-            totalTimeInSec--;
+        if(totalTime > 0){
+            totalTime--;
 
             // update active timer 
             p.textContent = formatTime(
-                Math.floor(totalTimeInSec / 3600),
-                Math.floor((totalTimeInSec % 3600) / 60),
-                totalTimeInSec % 60
+                Math.floor(totalTime / 3600),
+                Math.floor((totalTime % 3600) / 60),
+                totalTime % 60
             );
         } else {
             clearInterval(intervalId);
