@@ -6,7 +6,7 @@ const container = document.querySelector(".timersContainer");
 const stopSound = document.getElementById("timer-end");
 
 
-function noTimerCheck(){
+function noTimer(){
     if(container.childElementCount == 0){
 
         //when there is no timer active
@@ -58,7 +58,7 @@ set.addEventListener('click', () => {
     deleteButton.addEventListener('click', ()=> {
         activeTimer.remove(text,activeTimer,deleteButton);
         clearInterval(intervalId);
-        noTimerCheck();
+        noTimer();
     });
 
     
@@ -66,7 +66,7 @@ set.addEventListener('click', () => {
     activeTimer.append(text,p,deleteButton);
     container.append(activeTimer);
    
-    noTimerCheck();
+    noTimer();
 
     // Start timer using setInterval
     const intervalId = setInterval( ()=> {
